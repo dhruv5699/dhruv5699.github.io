@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#123f43" />
+    <meta
+      name="description"
+      content="A little countdown to the engagement of Dhruv and Sweta on 23 August 2026."
+    />
+    <title>Dhruv & Sweta — The Countdown Begins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-glow page-glow--one" aria-hidden="true"></div>
+    <div class="page-glow page-glow--two" aria-hidden="true"></div>
+
+    <header class="hero" id="home">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="monogram" href="#home" aria-label="Dhruv and Sweta, home">D<span>&</span>S</a>
+        <a class="nav-date" href="#countdown">23 · 08 · 2026</a>
+      </nav>
+
+      <div class="hero-photo" aria-hidden="true">
+        <img src="assets/dhruv-shweta-selfie.jpg" alt="" />
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow intro-item">We are getting engaged</p>
+        <h1 class="intro-item"><span>Dhruv</span><em>&</em><span>Sweta</span></h1>
+        <div class="hero-rule intro-item" aria-hidden="true"><i></i><b>♥</b><i></i></div>
+        <p class="hero-copy intro-item">A beautiful chapter is about to begin.</p>
+        <a class="scroll-cue intro-item" href="#countdown">
+          <span>Save the date</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="countdown-section" id="countdown">
+        <div class="floral-mark floral-mark--left" aria-hidden="true">❧</div>
+        <div class="section-heading reveal">
+          <p class="eyebrow eyebrow--dark">Counting down to forever</p>
+          <h2>Our special day</h2>
+          <p class="date-line">Sunday, 23 August 2026</p>
+        </div>
+
+        <div class="countdown reveal" role="timer" aria-label="Countdown to the engagement">
+          <div class="time-card"><strong id="days">00</strong><span>Days</span></div>
+          <div class="separator" aria-hidden="true">:</div>
+          <div class="time-card"><strong id="hours">00</strong><span>Hours</span></div>
+          <div class="separator" aria-hidden="true">:</div>
+          <div class="time-card"><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div class="separator" aria-hidden="true">:</div>
+          <div class="time-card"><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+        <p class="countdown-note reveal" id="countdown-note">Until two hearts promise a lifetime.</p>
+        <div class="floral-mark floral-mark--right" aria-hidden="true">❧</div>
+      </section>
+
+      <section class="story-section" aria-labelledby="story-title">
+        <div class="story-copy reveal">
+          <p class="eyebrow eyebrow--dark">A little bit of us</p>
+          <h2 id="story-title">Side by side,<br /><em>heart to heart.</em></h2>
+          <p>
+            From everyday smiles to a lifetime of togetherness — here’s to love, laughter,
+            and everything still to come.
+          </p>
+          <button class="love-button" id="love-button" type="button">
+            <span>Send some love</span><b aria-hidden="true">♥</b>
+          </button>
+        </div>
+
+        <div class="photo-stack reveal">
+          <button class="photo-card photo-card--back" type="button" data-photo="assets/dhruv-shweta-portrait.jpg" aria-label="Open photo of Dhruv and Sweta">
+            <img src="assets/dhruv-shweta-portrait.jpg" alt="Dhruv and Sweta smiling together" />
+          </button>
+          <button class="photo-card photo-card--front" type="button" data-photo="assets/dhruv-shweta-traditional.jpg" aria-label="Open portrait of Dhruv and Sweta">
+            <img src="assets/dhruv-shweta-traditional.jpg" alt="Dhruv and Sweta holding hands" />
+          </button>
+          <span class="photo-caption">Our favourite kind of story</span>
+        </div>
+      </section>
+
+      <section class="closing-section reveal">
+        <div class="rings" aria-hidden="true"><i></i><i></i></div>
+        <p class="eyebrow eyebrow--dark">Mark your calendar</p>
+        <h2>23 · 08 · 2026</h2>
+        <p>Because the best is yet to come.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made with <span aria-label="love">♥</span> for</p>
+      <strong>Dhruv & Sweta</strong>
+    </footer>
+
+    <dialog class="lightbox" id="lightbox">
+      <button class="lightbox-close" type="button" aria-label="Close photo">×</button>
+      <img src="" alt="Dhruv and Sweta" />
+    </dialog>
+
+  </body>
+</html>
