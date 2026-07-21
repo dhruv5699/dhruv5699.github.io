@@ -1,4 +1,9 @@
 const engagementDate = new Date("2026-08-23T00:00:00+05:30");
+const photoVariantToggle = document.querySelector("#photo-variant-toggle");
+const galleryImages = [...document.querySelectorAll("img[data-base]")];
+const photoCards = [...document.querySelectorAll("[data-photo-base]")];
+const lightbox = document.querySelector("#lightbox");
+const lightboxImage = lightbox.querySelector("img");
 
 const units = {
   days: document.querySelector("#days"),
@@ -6,6 +11,38 @@ const units = {
   minutes: document.querySelector("#minutes"),
   seconds: document.querySelector("#seconds"),
 };
+
+let currentPhotoVariant = 1;
+
+function syncToggleState() {
+  if (photoVariantToggle) photoVariantToggle.checked = currentPhotoVariant === 2;
+}
+
+function getRequestedPhotoVariant() {
+  return photoVariantToggle?.checked ? 2 : 1;
+}
+
+function buildImagePath(basePath, variant) {
+  return `${basePath}${variant === 2 ? "2" : ""}.jpg`;
+}
+
+function applyPhotoVariant(variant) {
+  currentPhotoVariant = variant;
+  syncToggleState();
+
+  galleryImages.forEach((image) => {
+    image.src = buildImagePath(image.dataset.base, variant);
+  });
+
+  photoCards.forEach((card) => {
+    card.dataset.photo = buildImagePath(card.dataset.photoBase, variant);
+  });
+
+  const activeCard = document.querySelector("[data-photo-base].is-active");
+  if (lightbox.open && activeCard) {
+    lightboxImage.src = activeCard.dataset.photo;
+  }
+}
 
 function setUnit(element, value, minimumLength = 2) {
   const nextValue = String(value).padStart(minimumLength, "0");
@@ -30,6 +67,14 @@ function updateCountdown() {
   setUnit(units.hours, Math.floor((distance % day) / hour));
   setUnit(units.minutes, Math.floor((distance % hour) / minute));
   setUnit(units.seconds, Math.floor((distance % minute) / 1000));
+}
+
+syncToggleState();
+applyPhotoVariant(currentPhotoVariant);
+if (photoVariantToggle) {
+  photoVariantToggle.addEventListener("change", () => {
+    applyPhotoVariant(getRequestedPhotoVariant());
+  });
 }
 
 updateCountdown();
@@ -65,16 +110,22 @@ document.querySelector("#love-button").addEventListener("click", (event) => {
   }
 });
 
-const lightbox = document.querySelector("#lightbox");
-const lightboxImage = lightbox.querySelector("img");
-document.querySelectorAll("[data-photo]").forEach((card) => {
+photoCards.forEach((card) => {
   card.addEventListener("click", () => {
+    photoCards.forEach((item) => item.classList.remove("is-active"));
+    card.classList.add("is-active");
     lightboxImage.src = card.dataset.photo;
     lightboxImage.alt = card.querySelector("img").alt;
     lightbox.showModal();
   });
 });
-lightbox.querySelector(".lightbox-close").addEventListener("click", () => lightbox.close());
+lightbox.querySelector(".lightbox-close").addEventListener("click", () => {
+  photoCards.forEach((card) => card.classList.remove("is-active"));
+  lightbox.close();
+});
 lightbox.addEventListener("click", (event) => {
-  if (event.target === lightbox) lightbox.close();
+  if (event.target === lightbox) {
+    photoCards.forEach((card) => card.classList.remove("is-active"));
+    lightbox.close();
+  }
 });

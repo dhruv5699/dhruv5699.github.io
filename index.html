@@ -25,11 +25,17 @@
     <header class="hero" id="home">
       <nav class="nav" aria-label="Main navigation">
         <a class="monogram" href="#home" aria-label="Dhruv and Sweta, home">D<span>&</span>S</a>
-        <a class="nav-date" href="#countdown">23 · 08 · 2026</a>
+        <div class="nav-controls">
+          <label class="format-toggle" for="photo-variant-toggle">
+            <input id="photo-variant-toggle" type="checkbox" aria-label="Switch to alternate photos" />
+            <b aria-hidden="true"></b>
+          </label>
+          <a class="nav-date" href="#countdown">23 · 08 · 2026</a>
+        </div>
       </nav>
 
       <div class="hero-photo" aria-hidden="true">
-        <img src="assets/dhruv-shweta-selfie.jpg" alt="" />
+        <img src="assets/dhruv-shweta-selfie.jpg" data-base="assets/dhruv-shweta-selfie" alt="" />
       </div>
       <div class="hero-shade" aria-hidden="true"></div>
 
@@ -81,11 +87,11 @@
         </div>
 
         <div class="photo-stack reveal">
-          <button class="photo-card photo-card--back" type="button" data-photo="assets/dhruv-shweta-portrait.jpg" aria-label="Open photo of Dhruv and Sweta">
-            <img src="assets/dhruv-shweta-portrait.jpg" alt="Dhruv and Sweta smiling together" />
+          <button class="photo-card photo-card--back" type="button" data-photo-base="assets/dhruv-shweta-portrait" aria-label="Open photo of Dhruv and Sweta">
+            <img src="assets/dhruv-shweta-portrait.jpg" data-base="assets/dhruv-shweta-portrait" alt="Dhruv and Sweta smiling together" />
           </button>
-          <button class="photo-card photo-card--front" type="button" data-photo="assets/dhruv-shweta-traditional.jpg" aria-label="Open portrait of Dhruv and Sweta">
-            <img src="assets/dhruv-shweta-traditional.jpg" alt="Dhruv and Sweta holding hands" />
+          <button class="photo-card photo-card--front" type="button" data-photo-base="assets/dhruv-shweta-traditional" aria-label="Open portrait of Dhruv and Sweta">
+            <img src="assets/dhruv-shweta-traditional.jpg" data-base="assets/dhruv-shweta-traditional" alt="Dhruv and Sweta holding hands" />
           </button>
           <span class="photo-caption">Our favourite kind of story</span>
         </div>
